@@ -1,11 +1,20 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
+import { Router } from 'react-router-dom';
+
+import './config/ReactotronConfig';
+
+import Routes from './routes';
+import history from './services/history';
+
+import GlobalStyles from './styles/globals';
 
 function App() {
   return (
-    <div className="App">
-      <h1>GoBarber Web!!</h1>
-    </div>
+    <Router history={history}>
+      <Routes />
+      <GlobalStyles />
+    </Router>
   );
 }
 
