@@ -6,13 +6,16 @@ import { Route, Redirect } from 'react-router-dom';
 import AuthLayout from '~/pages/_layouts/auth';
 import DefaultLayout from '~/pages/_layouts/default';
 
+import { store } from '~/store/index';
+
 export default function RouteWrapper({
   // Need use capial Letter for use <Component> as sintaxe
   component: Component,
   isPrivate,
   ...rest
 }) {
-  const signed = false;
+  // const signed = false;
+  const { signed } = store.getState().auth; // Auth is the reducer name
 
   // verify if user is logIn
   if (!signed && isPrivate) {
